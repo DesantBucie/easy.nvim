@@ -12,4 +12,11 @@ My plan is to use built-in vim completion, with some tweaks. It sometimes works 
 
 Just copy .vimrc and .vim to your home directory.
 
-![img2](.github/screenshot2.png)
+## Keybindings
+
+The leader key can be different depending on system. For me it's `\`. You can map it whatever key you want in `.vimrc` line 41.
+
+* lead + n - directory tree 
+* lead + t - new tab
+* lead + s - vertical split
+* tab - move between workplaces
