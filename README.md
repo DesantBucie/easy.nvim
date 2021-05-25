@@ -2,7 +2,7 @@
 
 The whole purpose of this is my annoyance towards those vim plugins that reqiuire python or node plugins. 
 
-![img](.github/screenshot1.png)
+![gif](.github/gif1.gif)
 
 ## Plan
 
