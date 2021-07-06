@@ -6,7 +6,7 @@ The whole purpose of this is my annoyance towards those vim plugins that reqiuir
 
 ## Plan
 
-My plan is to use built-in vim completion, with some tweaks. It sometimes works good, but needs some tweaks.
+My plan is to use built-in vim completion. It sometimes works good, but needs some tweaks.
 
 ## Instalation
 
