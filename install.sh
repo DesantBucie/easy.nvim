@@ -16,6 +16,8 @@ fi
 make_folder_if_doesnt_exist() {
     if [ ! -d "$1" ]; then
         mkdir -p "$1"
+    else 
+        cd "$1" && rm -rf *
     fi
 }
 make_folder_if_doesnt_exist "$NVIM_CONFIG"
@@ -25,5 +27,6 @@ cp -r nvim_config/* "$NVIM_CONFIG"
 cd "$NVIM_LOCAL" || exit 127;
 git clone https://github.com/neovim/nvim-lspconfig
 git clone https://github.com/nvim-lua/completion-nvim
+git clone https://github.com/luochen1990/rainbow
 echo "Now you need to install language servers on your behalf. Some may use nodejs, some may be written in C."
 echo "Best you check yourself: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md"

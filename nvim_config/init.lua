@@ -23,7 +23,6 @@ opt.number = true;
 opt.title = true;
 opt.expandtab = true;
 opt.errorbells = false;
-opt.autoindent = true;
 opt.smarttab = true;
 opt.smartcase = true;
 opt.ruler = true;
@@ -42,24 +41,41 @@ opt.incsearch = true;
 opt.shiftround = true;
 opt.compatible = false;
 opt.termguicolors = true;
-opt.completeopt = {'menuone', 'noinsert', 'noselect'}
+opt.completeopt = {'menuone','noinsert', 'noselect'};
 opt.backspace = {'indent', 'eol', 'start'};
 opt.clipboard = {'unnamed'};
-
+----------Globals----------------
 g.netrw_keepdir = 1;
 g.netrw_banner = 1;
 g.netew_liststyle = 3;
+g.rainbow_active = 1;
 
-map('n', '<tab>', '<C-W>w', {noremap=true});
-map('', '<leader>t', 'tabe<CR>');
-map('', '<leader>s', 'vsplit<CR>');
+require'plugin_manager'
+cmd [[ command -nargs=1 PluginInstall lua PluginInstall(<f-args>)]]
+cmd [[ command PluginUpdate lua PluginUpdate() ]]
+cmd [[ command PluginList lua PluginList() ]]
+cmd [[ command -nargs=1 PluginDelete lua PluginDelete(<f-args>) ]]
+---------Mappings--------------------
+map('', '<leader>t', ':tabe<CR>');
+map('', '<leader>s', ':vsplit<CR>');
 map('', '<leader>n', 'lua ToggleVExplorer()');
-cmd [[ map <silent> <leader>n :lua ToggleVExplorer()<CR> ]];
+map('n', '<tab>', '<C-W>w', {noremap=true});
+map('i', '"', '""<left>', {noremap=true});
+map('i', "'", "''<left>", {noremap=true});
+map('i', '(', '()<left>', {noremap=true});
+map('i', '[', '[]<left>', {noremap=true});
+map('i', '{', '{}<left>', {noremap=true});
+map('i', '{<CR>', '{<CR>}<ESC>O', {noremap=true});
+map('i', '{;<CR>', '{<CR>};<ESC>O', {noremap=true});
+map('', '<leader>n', ':lua ToggleVExplorer()<CR>', {silent=true});
+----------Vim Commands----------------
 cmd [[ colorscheme gruvbox ]]
-cmd [[ hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red ]]
 cmd [[ set path+=** ]]
+cmd [[ filetype plugin indent on ]]
+----------Language server protocol setup--------------
 require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach};
 require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach};
 require'lspconfig'.jsonls.setup {on_attach=require'completion'.on_attach};
 require'lspconfig'.html.setup{on_attach=require'completion'.on_attach};
 require'lspconfig'.cssls.setup{on_attach=require'completion'.on_attach};
+
