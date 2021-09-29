@@ -9,8 +9,9 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 function ToggleVExplorer()
+    g.netrw_chgwin = fn.winnr() + 1
+    g.netrw_winsize = 40;
     cmd [[ Lexplore ]];
-    cmd [[ vertical resize 40 ]];
 end
 -----------Options--------------
 opt.shiftwidth = 4;
@@ -46,10 +47,11 @@ opt.backspace = {'indent', 'eol', 'start'};
 opt.clipboard = {'unnamed'};
 ----------Globals----------------
 g.netrw_keepdir = 1;
-g.netrw_banner = 1;
-g.netew_liststyle = 3;
+g.netrw_banner = 0;
+g.netrw_liststyle = 3;
+g.netrw_localcopydircmd = 'cp -r';
 g.rainbow_active = 1;
-
+-------------Plugin Managing----------
 require'plugin_manager'
 cmd [[ command -nargs=1 PluginInstall lua PluginInstall(<f-args>)]]
 cmd [[ command PluginUpdate lua PluginUpdate() ]]
@@ -58,7 +60,7 @@ cmd [[ command -nargs=1 PluginDelete lua PluginDelete(<f-args>) ]]
 ---------Mappings--------------------
 map('', '<leader>t', ':tabe<CR>');
 map('', '<leader>s', ':vsplit<CR>');
-map('', '<leader>n', 'lua ToggleVExplorer()');
+map('', '<leader>n', ':lua ToggleVExplorer()<CR>');
 map('n', '<tab>', '<C-W>w', {noremap=true});
 map('i', '"', '""<left>', {noremap=true});
 map('i', "'", "''<left>", {noremap=true});
@@ -67,11 +69,11 @@ map('i', '[', '[]<left>', {noremap=true});
 map('i', '{', '{}<left>', {noremap=true});
 map('i', '{<CR>', '{<CR>}<ESC>O', {noremap=true});
 map('i', '{;<CR>', '{<CR>};<ESC>O', {noremap=true});
-map('', '<leader>n', ':lua ToggleVExplorer()<CR>', {silent=true});
 ----------Vim Commands----------------
-cmd [[ colorscheme gruvbox ]]
 cmd [[ set path+=** ]]
 cmd [[ filetype plugin indent on ]]
+cmd [[ hi! link netrwMarkFile Search ]]
+cmd [[ set guitablabel=%N/\ %t\ %M ]]
 ----------Language server protocol setup--------------
 require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach};
 require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach};

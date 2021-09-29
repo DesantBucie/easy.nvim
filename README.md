@@ -5,9 +5,8 @@ No package managers, only simple scripts to install, update etc.
 
 ## TODO
 
-* Netrw tweaks, so it isn't buggy with split view + netrw open.
 * Vim last session
-* better tabs handling
+* Numered tabs
 
 ## Plan
 
