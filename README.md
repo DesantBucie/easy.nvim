@@ -1,4 +1,4 @@
-# easy-nvim
+# easy.nvim
 
 The whole purpose of this is was my annoyance for needing hunderets of plugins to use vim.
 I want to use built-in features.
@@ -12,6 +12,7 @@ I want to use built-in features.
 
 This uses neovim built-in LSP. Unfortunately that means, **you will be reponsible for installing lsp!**
 Different LSPs use different strats. Some will use node, or run natively. Also only few servers are set up in init.lua, so you might add something like:
+
 `require'lspconfig'.<servername>.setup{on_attach=require'completion'.on_attach};`
 
 (1)For example `npm config set prefix '~/.local/npm-global'/`.
@@ -34,7 +35,7 @@ The leader key can be different depending on system. For me it's `\`. You can cu
 * Install Plugin `:PluginInstall <url | multiple urls>`
 * List Plugins `:PluginList`
 * Update all plugins `:PluginUpdate`
-* Remove plugin `:PluginDelete <name of plugin folder | folders printed by PluginList command>`
+* Remove plugin `:PluginDelete <name of plugin | plugins (printed by :PluginList)>`
 
 ## Colorschemes
 
