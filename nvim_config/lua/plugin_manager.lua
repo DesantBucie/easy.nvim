@@ -9,9 +9,18 @@ function scandir(directory)
     pfile:close()
     return t
 end
+function Split(s, delimiter)
+    result = {};
+    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+        table.insert(result, match);
+    end
+    return result;
+end
 function PluginInstall(url)
-    if type(url) == "string" then
-        os.execute('cd "'..plugins_folder..'" && git clone '..url);
+    local array = Split(url, ' ');
+    local array_len = #(array)
+    for i=1, array_len do  
+        os.execute('cd "'..plugins_folder..'" && git clone '..array[i]);
     end
 end
 function PluginUpdate()
