@@ -3,6 +3,8 @@
 The whole purpose of this is was my annoyance for needing hunderets of plugins to use vim.
 I want to use built-in features.
 
+![Banner](https://raw.github.com/DesantBucie/DesantBucie/master/easy.nvim/banner.png)
+
 ## TODO
 
 * Vim last session
@@ -44,3 +46,9 @@ From that point, *easy* won't include any colorschemes. It's easy to use one tho
 1. Choose colorscheme, best without any dependencies, for example [gruvbox8](https://github.com/lifepillar/vim-gruvbox8)
 2. `:Plugin Install <url>`
 3. Add `cmd [[ <colorscheme-name> ]]` to `~/.config/nvim/init.lua`
+
+## Advices
+
+* Bind ESC to Caps-Lock, for example on mac:
+
+![Esc](https://raw.github.com/DesantBucie/DesantBucie/master/easy.nvim/esc.gif)
