@@ -34,13 +34,13 @@ The leader key can be different depending on system. For me it's `\`. You can cu
 
 * Install Plugin `:PluginInstall <url | multiple urls>`
 * List Plugins `:PluginList`
-* Update all plugins `:PluginUpdate`
+* Update all plugins `:PluginUpdate <packages names(optional, if not defined, all will be searched)>`
 * Remove plugin `:PluginDelete <name of plugin | plugins (printed by :PluginList)>`
 
 ## Colorschemes
 
 From that point, *easy* won't include any colorschemes. It's easy to use one though.
 
-1. Choose colorscheme, best without any dependencies.
+1. Choose colorscheme, best without any dependencies, for example [gruvbox8](https://github.com/lifepillar/vim-gruvbox8)
 2. `:Plugin Install <url>`
 3. Add `cmd [[ <colorscheme-name> ]]` to `~/.config/nvim/init.lua`

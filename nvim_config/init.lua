@@ -13,6 +13,41 @@ function ToggleVExplorer()
     g.netrw_winsize = 40;
     cmd [[ Lexplore ]];
 end
+----------Globals----------------
+g.netrw_keepdir = 1;
+g.netrw_banner = 0;
+g.netrw_liststyle = 3;
+g.netrw_localcopydircmd = 'cp -r';
+g.rainbow_active = 1;
+-------------Plugin Managing----------
+require'plugin_manager'
+cmd [[ command -nargs=1 PluginInstall lua PluginInstall(<f-args>)]]
+cmd [[ command -nargs=1 PluginUpdate lua PluginUpdate(<f-args>) ]]
+cmd [[ command PluginList lua PluginList() ]]
+cmd [[ command -nargs=1 PluginDelete lua PluginDelete(<f-args>) ]]
+---------Mappings--------------------
+map('', '<leader>t', ':tabe<CR>');
+map('', '<leader>s', ':vsplit<CR>');
+map('', '<leader>n', ':lua ToggleVExplorer()<CR>');
+map('n', '<tab>', '<C-W>w', {noremap=true});
+map('i', '"', '""<left>', {noremap=true});
+map('i', "'", "''<left>", {noremap=true});
+map('i', '(', '()<left>', {noremap=true});
+map('i', '[', '[]<left>', {noremap=true});
+map('i', '{', '{}<left>', {noremap=true});
+map('i', '{<CR>', '{<CR>}<ESC>O', {noremap=true});
+map('i', '{;<CR>', '{<CR>};<ESC>O', {noremap=true});
+----------Vim Commands----------------
+cmd [[ set path+=** ]]
+cmd [[ filetype plugin indent on ]]
+cmd [[ hi! link netrwMarkFile Search ]]
+cmd [[ set guitablabel=%N/\ %t\ %M ]]
+----------Language server protocol setup--------------
+require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach};
+require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach};
+require'lspconfig'.jsonls.setup {on_attach=require'completion'.on_attach};
+require'lspconfig'.html.setup{on_attach=require'completion'.on_attach};
+require'lspconfig'.cssls.setup{on_attach=require'completion'.on_attach};
 -----------Options--------------
 opt.shiftwidth = 4;
 opt.scrolloff = 1;
@@ -45,39 +80,3 @@ opt.termguicolors = true;
 opt.completeopt = {'menuone','noinsert', 'noselect'};
 opt.backspace = {'indent', 'eol', 'start'};
 opt.clipboard = {'unnamed'};
-----------Globals----------------
-g.netrw_keepdir = 1;
-g.netrw_banner = 0;
-g.netrw_liststyle = 3;
-g.netrw_localcopydircmd = 'cp -r';
-g.rainbow_active = 1;
--------------Plugin Managing----------
-require'plugin_manager'
-cmd [[ command -nargs=1 PluginInstall lua PluginInstall(<f-args>)]]
-cmd [[ command PluginUpdate lua PluginUpdate() ]]
-cmd [[ command PluginList lua PluginList() ]]
-cmd [[ command -nargs=1 PluginDelete lua PluginDelete(<f-args>) ]]
----------Mappings--------------------
-map('', '<leader>t', ':tabe<CR>');
-map('', '<leader>s', ':vsplit<CR>');
-map('', '<leader>n', ':lua ToggleVExplorer()<CR>');
-map('n', '<tab>', '<C-W>w', {noremap=true});
-map('i', '"', '""<left>', {noremap=true});
-map('i', "'", "''<left>", {noremap=true});
-map('i', '(', '()<left>', {noremap=true});
-map('i', '[', '[]<left>', {noremap=true});
-map('i', '{', '{}<left>', {noremap=true});
-map('i', '{<CR>', '{<CR>}<ESC>O', {noremap=true});
-map('i', '{;<CR>', '{<CR>};<ESC>O', {noremap=true});
-----------Vim Commands----------------
-cmd [[ set path+=** ]]
-cmd [[ filetype plugin indent on ]]
-cmd [[ hi! link netrwMarkFile Search ]]
-cmd [[ set guitablabel=%N/\ %t\ %M ]]
-----------Language server protocol setup--------------
-require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach};
-require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach};
-require'lspconfig'.jsonls.setup {on_attach=require'completion'.on_attach};
-require'lspconfig'.html.setup{on_attach=require'completion'.on_attach};
-require'lspconfig'.cssls.setup{on_attach=require'completion'.on_attach};
-
