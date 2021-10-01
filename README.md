@@ -15,7 +15,7 @@ Different LSPs use different strats. Some will use node, or run natively. Also o
 
 `require'lspconfig'.<servername>.setup{on_attach=require'completion'.on_attach};`
 
-(1)For example `npm config set prefix '~/.local/npm-global'/`.
+Btw, setting up node, so global packages doesn't need root privilages: `npm config set prefix '~/.local/npm-global'/`.
 
 ## Instalation
 
