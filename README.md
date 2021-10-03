@@ -14,7 +14,7 @@ I want to use built-in features.
 
 This uses neovim built-in LSP. Unfortunately that means, **you will be reponsible for installing lsp!** Check them out: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
-`require'lspconfig'.<servername>.setup{on_attach=require'completion'.on_attach};`
+Only few servers are set(ts,js,html,clangd), put this in ~/.config/init.lua if your server doesn't work. `require'lspconfig'.<servername>.setup{on_attach=require'completion'.on_attach};`
 
 Btw, setting up node, so global packages doesn't need root privilages: `npm config set prefix '~/.local/npm-global'/`(or any other directory that doesn't).
 
