@@ -9,7 +9,7 @@ local function scandir(directory)
     pfile:close()
     return t
 end
-local function Split(s, delimiter)
+function Split(s, delimiter)
     result = {};
     for match in (s..delimiter):gmatch("(.-)"..delimiter) do
         table.insert(result, match);
@@ -18,7 +18,7 @@ local function Split(s, delimiter)
 end
 function PluginInstall(url)
     local table = Split(url, ' ');
-    local table_len = #(array)
+    local table_len = #(table)
     for i=1, table_len do  
         os.execute('cd "'..plugins_folder..'" && git clone '..table[i]);
     end
