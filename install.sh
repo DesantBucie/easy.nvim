@@ -9,7 +9,7 @@ NVIM_LOCAL="$HOME/.local/share/nvim/site/pack/plugins/start"
 ! type sed && echo "No sed installed" && exit 127
 ! type sort && echo "No sort installed" && exit 127
 
-if [ ! "$(printf '%s\n' "$NVIM_REQU" "$NVIM_VERS" | sort -V | sed 1q)" -eq "$NVIM_REQU" ]; then
+if [ ! "$(printf '%s\n' "$NVIM_REQU" "$NVIM_VERS" | sort -V | sed 1q)" = "$NVIM_REQU" ]; then
     echo "At least Neovim 0.5.0 or newer is needed"
     exit 127
 fi
