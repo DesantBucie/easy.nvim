@@ -12,12 +12,11 @@ I want to use built-in features.
 
 ## Language server protocol
 
-This uses neovim built-in LSP. Unfortunately that means, **you will be reponsible for installing lsp!**
-Different LSPs use different strats. Some will use node, or run natively. Also only few servers are set up in init.lua, so you might add something like:
+This uses neovim built-in LSP. Unfortunately that means, **you will be reponsible for installing lsp!** Check them out: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
 `require'lspconfig'.<servername>.setup{on_attach=require'completion'.on_attach};`
 
-Btw, setting up node, so global packages doesn't need root privilages: `npm config set prefix '~/.local/npm-global'/`.
+Btw, setting up node, so global packages doesn't need root privilages: `npm config set prefix '~/.local/npm-global'/`(or any other directory that doesn't).
 
 ## Instalation
 
@@ -34,6 +33,7 @@ The leader key can be different depending on system. For me it's `\`. You can cu
 
 ## Plugins management
 
+* Update *easy* `:EasyUpdate`
 * Install Plugin `:PluginInstall <url | multiple urls>`
 * List Plugins `:PluginList`
 * Update all plugins `:PluginUpdate <packages names(optional, if not defined, all will be searched)>`

@@ -23,7 +23,8 @@ make_folder_if_doesnt_exist() {
 make_folder_if_doesnt_exist "$NVIM_CONFIG"
 make_folder_if_doesnt_exist "$NVIM_LOCAL"
 
-cp -r nvim_config/* "$NVIM_CONFIG"
+cp init.lua "$NVIM_CONFIG"
+cd .. && cp -r "easy.nvim" "$NVIM_LOCAL" 
 cd "$NVIM_LOCAL" || exit 127;
 git clone https://github.com/neovim/nvim-lspconfig
 git clone https://github.com/nvim-lua/completion-nvim
