@@ -25,7 +25,7 @@ cmd [[ command -nargs=1 PluginInstall lua PluginInstall(<f-args>)]]
 cmd [[ command -nargs=1 PluginUpdate lua PluginUpdate(<f-args>) ]]
 cmd [[ command PluginList lua PluginList() ]]
 cmd [[ command -nargs=1 PluginDelete lua PluginDelete(<f-args>) ]]
-cmd [[ command EasyUpdate lua EasyUpdate() ]]
+cmd [[ command EasyUpdate lua PluginUpdate("easy.nvim") ]]
 ---------Mappings--------------------
 map('', '<leader>t', ':tabe<CR>');
 map('', '<leader>s', ':vsplit<CR>');

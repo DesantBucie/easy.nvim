@@ -48,6 +48,3 @@ end
 function PluginDelete(names)
     os.execute('cd "'..plugins_folder..'" && rm -rf '..names)
 end
-function EasyUpdate()
-   PluginUpdate("easy.nvim") 
-end
