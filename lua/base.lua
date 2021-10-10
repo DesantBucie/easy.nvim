@@ -33,11 +33,9 @@ map('', '<leader>n', ':lua ToggleVExplorer()<CR>');
 map('n', '<tab>', '<C-W>w', {noremap=true});
 map('i', '"', '""<left>', {noremap=true});
 map('i', "'", "''<left>", {noremap=true});
-map('i', '(', '()<left>', {noremap=true});
-map('i', '[', '[]<left>', {noremap=true});
-map('i', '{', '{}<left>', {noremap=true});
-map('i', '{<CR>', '{<CR>}<ESC>O', {noremap=true});
-map('i', '{;<CR>', '{<CR>};<ESC>O', {noremap=true});
+map('i', '(<CR>', '(<CR>)<ESC>O', {noremap=true});
+map('i', '[<CR>', '[<CR>];<ESC>O', {noremap=true});
+map('i', '{<CR>', '{<CR>};<ESC>O', {noremap=true});
 ----------Vim Commands----------------
 cmd [[ set path+=** ]]
 cmd [[ filetype plugin indent on ]]
