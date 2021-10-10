@@ -24,15 +24,15 @@ function PluginInstall(url)
     end
 end
 function PluginUpdate(names)
-    if names then
-        local table = Split(names,' ');
-    else
+    if names == 'all' then
         local table = scandir(plugins_folder);
+    else
+        local table = Split(names,' ');
     end
     local table_len = #(table);
     for i = 1, table_len do
         if not (table[i] == '.' or table[i]=='..') then
-            os.execute('cd "'..plugins_folder..table[i]..'" && git pull' );
+            os.execute('cd "'..plugins_folder..table[i]..'" && git stash && git pull' );
         end
     end
 end

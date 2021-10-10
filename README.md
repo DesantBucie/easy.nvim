@@ -34,10 +34,10 @@ The leader key can be different depending on system. For me it's `\`. You can cu
 ## Plugins management
 
 * Update *easy* `:EasyUpdate`
-* Install Plugin `:PluginInstall <url | multiple urls>`
+* Install Plugin `:PluginInstall <url | multiple_urls>`
 * List Plugins `:PluginList`
-* Update all plugins `:PluginUpdate <packages names(optional, if not defined, all will be searched)>`
-* Remove plugin `:PluginDelete <name of plugin | plugins (printed by :PluginList)>`
+* Update all plugins `:PluginUpdate <all | package_names>`
+* Remove plugin `:PluginDelete <plugin_name | plugin_names (printed by :PluginList)>`
 
 ## Colorschemes
 
