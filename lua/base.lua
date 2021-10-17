@@ -22,7 +22,7 @@ g.rainbow_active = 1;
 -------------Plugin Managing----------
 require'plugin_manager'
 cmd [[ command -nargs=1 PluginInstall lua PluginInstall(<f-args>)]]
-cmd [[ command -nargs=1 PluginUpdate lua PluginUpdate(<f-args>) ]]
+cmd [[ command PluginUpdate lua PluginUpdate() ]]
 cmd [[ command PluginList lua PluginList() ]]
 cmd [[ command -nargs=1 PluginDelete lua PluginDelete(<f-args>) ]]
 cmd [[ command EasyUpdate lua PluginUpdate("easy.nvim") ]]
@@ -50,31 +50,23 @@ require'lspconfig'.cssls.setup{on_attach=require'completion'.on_attach};
 -----------Options--------------
 opt.shiftwidth = 4;
 opt.scrolloff = 1;
-opt.laststatus = 2;
 opt.tabstop = 4;
 opt.sidescrolloff = 5;
-opt.background='dark'
 opt.number = true;
 opt.title = true;
 opt.expandtab = true;
 opt.errorbells = false;
-opt.smarttab = true;
 opt.smartcase = true;
-opt.ruler = true;
 opt.wrap = true;
 opt.showmatch = true;
 opt.ignorecase = true;
 opt.linebreak = true;
 opt.cursorline = true;
 opt.swapfile = false;
-opt.showcmd = true;
-opt.autoread = true;
 opt.autochdir = true;
 opt.backup = false;
 opt.wb = false;
-opt.incsearch = true;
 opt.shiftround = true;
-opt.compatible = false;
 opt.termguicolors = true;
 opt.completeopt = {'menuone','noinsert', 'noselect'};
 opt.backspace = {'indent', 'eol', 'start'};
