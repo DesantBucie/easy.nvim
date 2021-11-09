@@ -2,6 +2,8 @@ local cmd = vim.api.nvim_command;
 local fn = vim.fn;    
 local g = vim.g;      
 local opt = vim.opt;  
+local cmp = require'cmp'
+local lsp = require'lspconfig'
 -----------Functions---------
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true}
@@ -41,12 +43,52 @@ cmd [[ set path+=** ]]
 cmd [[ filetype plugin indent on ]]
 cmd [[ hi! link netrwMarkFile Search ]]
 cmd [[ set guitablabel=%N/\ %t\ %M ]]
+-----------AutoCompletion---------------
+cmp.setup({
+    snippet = {
+      expand = function(args)
+        require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+      end,
+    },
+    mapping = {
+      ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+      ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      ['<C-e>'] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  cmp.setup.cmdline('/', {
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 ----------Language server protocol setup--------------
-require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach};
-require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach};
-require'lspconfig'.jsonls.setup {on_attach=require'completion'.on_attach};
-require'lspconfig'.html.setup{on_attach=require'completion'.on_attach};
-require'lspconfig'.cssls.setup{on_attach=require'completion'.on_attach};
+lsp.clangd.setup{};
+lsp.tsserver.setup{};
+lsp.jsonls.setup {};
+lsp.html.setup{};
+lsp.cssls.setup{};
 -----------Options--------------
 opt.shiftwidth = 4;
 opt.scrolloff = 1;

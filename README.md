@@ -1,7 +1,7 @@
 # easy.nvim
 
-The whole purpose of this is was my annoyance for needing hunderets of plugins to use vim.
-I want to use built-in features.
+The whole purpose of this is was my annoyance for needing hundreds of plugins to use vim.
+I want to use mostly built-in features.
 
 ![Banner](https://raw.github.com/DesantBucie/DesantBucie/master/easy.nvim/banner.png)
 
@@ -14,9 +14,9 @@ I want to use built-in features.
 
 This uses neovim built-in LSP. Unfortunately that means, **you will be reponsible for installing lsp!** Check them out: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
-Only few servers are set(ts,js,html,clangd), put this in ~/.config/init.lua if your server doesn't work. `require'lspconfig'.<servername>.setup{on_attach=require'completion'.on_attach};`
+Ts,js,html,clangd are all set. To add your server to config(after you installed it) put this `lsp.<servername>.setup{}` to _~/.config/nvim/init.lua_ 
 
-Btw, setting up node, so global packages doesn't need root privilages: `npm config set prefix '~/.local/npm-global'/`(or any other directory that doesn't).
+By the way, set up node, so global packages doesn't need root privilages: `npm config set prefix '~/.local/npm-global'/`(or any other directory that doesn't).
 
 ## Instalation
 
@@ -24,7 +24,7 @@ Run install.sh
 
 ## Keybindings
 
-The leader key can be different depending on system. For me it's `\`. You can customise it in `~/.config/init.lua`(`cmd [[ let mapleader = 'choose_key']]`).
+The leader key can be different depending on system. For me it's `\`. You can customise it in _~/.config/init.lua_(`cmd [[ let mapleader = 'choose_key']]`).
 
 * lead + n - directory explorer 
 * lead + t - new tab

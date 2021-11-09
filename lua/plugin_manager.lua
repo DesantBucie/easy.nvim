@@ -20,8 +20,9 @@ function PluginInstall(url)
     local table = Split(url, ' ');
     local table_len = #(table)
     for i=1, table_len do  
-        os.execute('cd "'..plugins_folder..'" && git clone '..table[i]);
+        os.execute('cd "'..plugins_folder..'" && git clone --quiet '..table[i]);
     end
+    print('Done');
 end
 function PluginUpdate(names)
     if names then
@@ -32,9 +33,10 @@ function PluginUpdate(names)
     local table_len = #(table);
     for i = 1, table_len do
         if not (table[i] == '.' or table[i]=='..') then
-            os.execute('cd "'..plugins_folder..table[i]..'" && git stash && git pull origin $(git  rev-parse --abbrev-ref HEAD)');
+            os.execute('cd "'..plugins_folder..table[i]..'" && git stash --quiet && git pull origin --quiet $(git  rev-parse --abbrev-ref HEAD)');
         end
     end
+    print('Done');
 end
 function PluginList()
    local table = scandir(plugins_folder)
@@ -47,4 +49,5 @@ function PluginList()
 end
 function PluginDelete(names)
     os.execute('cd "'..plugins_folder..'" && rm -rf '..names)
+    print('Done');
 end
