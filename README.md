@@ -45,7 +45,7 @@ From that point, *easy* won't include any colorschemes. It's easy to use one tho
 
 1. Choose colorscheme, best without any dependencies, for example [gruvbox8](https://github.com/lifepillar/vim-gruvbox8)
 2. `:Plugin Install <url>`
-3. Add `cmd [[ <colorscheme-name> ]]` to `~/.config/nvim/init.lua`
+3. Add `cmd [[ colorscheme <colorscheme-name> ]]` to `~/.config/nvim/init.lua`
 
 ## Advices
 
