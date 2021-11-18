@@ -17,6 +17,7 @@ function Split(s, delimiter)
     return result;
 end
 function PluginInstall(url)
+    print('Installing...');
     local table = Split(url, ' ');
     local table_len = #(table)
     for i=1, table_len do  
@@ -25,6 +26,7 @@ function PluginInstall(url)
     print('Done');
 end
 function PluginUpdate(names)
+    print('Updating...');
     if names then
         local table = Split(names,' ');
     else
@@ -48,6 +50,7 @@ function PluginList()
     end
 end
 function PluginDelete(names)
+    print('Removing')
     os.execute('cd "'..plugins_folder..'" && rm -rf '..names)
     print('Done');
 end

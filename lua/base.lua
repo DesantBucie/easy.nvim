@@ -15,6 +15,8 @@ function ToggleVExplorer()
     g.netrw_winsize = 40;
     cmd [[ Lexplore ]];
 end
+require'keyboard_detector'
+map_leader()
 ----------Globals----------------
 g.netrw_keepdir = 1;
 g.netrw_banner = 0;
