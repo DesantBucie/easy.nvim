@@ -92,6 +92,7 @@ lsp.jsonls.setup {};
 lsp.html.setup{};
 lsp.cssls.setup{};
 -----------Options--------------
+opt.viminfo = '';
 opt.shiftwidth = 4;
 opt.scrolloff = 1;
 opt.tabstop = 4;
