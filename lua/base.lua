@@ -15,6 +15,7 @@ function ToggleVExplorer()
     g.netrw_winsize = 40;
     cmd [[ Lexplore ]];
 end
+require('nvim-autopairs').setup{}
 require'keyboard_detector'
 map_leader()
 ----------Globals----------------
@@ -29,17 +30,11 @@ cmd [[ command -nargs=1 PluginInstall lua PluginInstall(<f-args>)]]
 cmd [[ command PluginUpdate lua PluginUpdate() ]]
 cmd [[ command PluginList lua PluginList() ]]
 cmd [[ command -nargs=1 PluginDelete lua PluginDelete(<f-args>) ]]
-cmd [[ command EasyUpdate lua PluginUpdate("easy.nvim") ]]
 ---------Mappings--------------------
 map('', '<leader>t', ':tabe<CR>');
 map('', '<leader>s', ':vsplit<CR>');
 map('', '<leader>n', ':lua ToggleVExplorer()<CR>');
 map('n', '<tab>', '<C-W>w', {noremap=true});
-map('i', '"', '""<left>', {noremap=true});
-map('i', "'", "''<left>", {noremap=true});
-map('i', '(<CR>', '(<CR>)<ESC>O', {noremap=true});
-map('i', '[<CR>', '[<CR>]<ESC>O', {noremap=true});
-map('i', '{<CR>', '{<CR>}<ESC>O', {noremap=true});
 ----------Vim Commands----------------
 cmd [[ set path+=** ]]
 cmd [[ filetype plugin indent on ]]

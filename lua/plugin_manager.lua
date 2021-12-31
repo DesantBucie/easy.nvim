@@ -25,13 +25,9 @@ function PluginInstall(url)
     end
     print('Done');
 end
-function PluginUpdate(names)
+function PluginUpdate()
     print('Updating...');
-    if names then
-        local table = Split(names,' ');
-    else
-        local table = scandir(plugins_folder);
-    end
+    local table = scandir(plugins_folder);
     local table_len = #(table);
     for i = 1, table_len do
         if not (table[i] == '.' or table[i]=='..') then

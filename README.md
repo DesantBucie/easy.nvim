@@ -33,7 +33,6 @@ The leader key can be different depending on system. For me it's `\`. You can cu
 
 ## Plugins management
 
-* Update *easy* `:EasyUpdate`
 * Install Plugin `:PluginInstall <url | multiple_urls>`
 * List Plugins `:PluginList`
 * Update all plugins `:PluginUpdate`
