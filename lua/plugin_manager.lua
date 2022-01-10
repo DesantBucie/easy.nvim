@@ -1,4 +1,3 @@
-local plugins_folder="$HOME/.local/share/nvim/site/pack/plugins/start/"
 local function scandir(directory)
     local i, t, popen = 0, {}, io.popen
     local pfile = popen('ls -a "'..directory..'"')
@@ -16,6 +15,13 @@ function Split(s, delimiter)
     end
     return result;
 end
+function PluginUnload(names)
+   print('Unloading')
+   --os.execute('cd "'..plugins_folder..'" && mv '..names..' '..unloaded_folder)
+end
+function Reload(names)
+    print('Reloading')
+end  
 function PluginInstall(url)
     print('Installing...');
     local table = Split(url, ' ');

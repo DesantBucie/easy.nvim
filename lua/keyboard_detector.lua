@@ -1,4 +1,3 @@
-local filepath = "$HOME/.local/share/nvim/site/pack/plugins/start/easy.nvim/bin/kbd"
 function map_leader()
     if jit and jit.os and jit.arch then
         os_name = jit.os

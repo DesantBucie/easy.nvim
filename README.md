@@ -30,6 +30,7 @@ The leader key can be different depending on system. For me it's `\`. You can cu
 * lead + t - new tab
 * lead + s - vertical split
 * tab - move between workplaces
+* :Temp - load template if avaliable.
 
 ## Plugins management
 

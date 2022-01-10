@@ -4,6 +4,10 @@ local g = vim.g;
 local opt = vim.opt;  
 local cmp = require'cmp'
 local lsp = require'lspconfig'
+require('nvim-autopairs').setup{}
+require'path' -- All paths
+require'keyboard_detector' 
+require'template'
 -----------Functions---------
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true}
@@ -15,8 +19,6 @@ function ToggleVExplorer()
     g.netrw_winsize = 40;
     cmd [[ Lexplore ]];
 end
-require('nvim-autopairs').setup{}
-require'keyboard_detector'
 map_leader()
 ----------Globals----------------
 g.netrw_keepdir = 1;
@@ -40,6 +42,7 @@ cmd [[ set path+=** ]]
 cmd [[ filetype plugin indent on ]]
 cmd [[ hi! link netrwMarkFile Search ]]
 cmd [[ set guitablabel=%N/\ %t\ %M ]]
+cmd [[ command Temp lua template() ]]
 -----------AutoCompletion---------------
 cmp.setup({
     snippet = {

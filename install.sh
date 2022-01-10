@@ -4,6 +4,7 @@ NVIM_REQU="NVIM v0.5.0"
 NVIM_VERS=$(nvim --version | sed 1q)
 NVIM_CONFIG="$HOME/.config/nvim"
 NVIM_PLUGINS="$HOME/.local/share/nvim/site/pack/plugins/start"
+NVIM_UNLOADED="$HOME/.local/share/nvim/site/pack/plugins/opt"
 
 ! type git && echo "No git installed" && exit 127
 ! type printf && echo "No printf installed" && exit 127
@@ -23,6 +24,7 @@ make_folder_if_doesnt_exist() {
 }
 make_folder_if_doesnt_exist "$NVIM_CONFIG"
 make_folder_if_doesnt_exist "$NVIM_PLUGINS"
+make_folder_if_doesnt_exist "$NVIM_UNLOADED"
 
 cd "$CURRENT_PWD"
 cp init.lua "$NVIM_CONFIG" && echo COPYING init.lua
