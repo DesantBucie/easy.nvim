@@ -37,8 +37,8 @@ git clone https://github.com/hrsh7th/cmp-buffer
 git clone https://github.com/hrsh7th/cmp-path
 git clone https://github.com/hrsh7th/cmp-cmdline
 git clone https://github.com/hrsh7th/nvim-cmp
-git clone https://github.com/dcampos/nvim-snippy
-git clone https://github.com/dcampos/cmp-snippy
+git clone https://github.com/hrsh7th/cmp-vsnip
+git clone https://github.com/hrsh7th/vim-vsnip
 git clone https://github.com/windwp/nvim-autopairs.git
 echo "Now you need to install language servers on your behalf."
 echo "Best you check yourself: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md"

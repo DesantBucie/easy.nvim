@@ -1,6 +1,6 @@
 function template()
-    local extension = vim.fn.expand('%:e')
-    local check_file = templates.."skel."..extension
+    local lang = vim.fn.expand('%:e')
+    local check_file = templates..lang..".template"
     local file = io.open(check_file, "r")
     if file ~= nil then
         io.close(file)

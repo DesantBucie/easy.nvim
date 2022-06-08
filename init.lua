@@ -4,6 +4,6 @@ local g = vim.g;
 local opt = vim.opt;  
 local cmp = require'cmp'
 local lsp = require'lspconfig' -- use this to set additional lsp server
-require'base'
+require'main'
 --- Personal addons ----
 
