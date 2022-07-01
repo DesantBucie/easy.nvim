@@ -37,8 +37,8 @@ The leader key can be different depending on system. For me it's `\`. You can cu
 
 ### Autocompletion
 
-* Shift + tab - go down in autocmpletion window
-* Shift + z - go up
+* Shift + Tab - go down in autocmpletion window
+* Control + Tab - go up
 
 ## Plugins management
 

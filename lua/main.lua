@@ -63,7 +63,7 @@ cmp.setup({
             end
         end, { "i", "s" }),
 
-        ["<S-z>"] = cmp.mapping(function()
+        ["<C-Tab>"] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
             elseif vim.fn["vsnip#jumpable"](-1) == 1 then
