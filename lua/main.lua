@@ -2,16 +2,17 @@ local cmd = vim.api.nvim_command;
 local fn = vim.fn;    
 local g = vim.g;      
 local opt = vim.opt;  
+local create_cmd = vim.api.nvim_create_user_command
 local cmp = require'cmp'
-local lsp = require'lspconfig'
 require('nvim-autopairs').setup{}
 require'path' -- All paths
-require'keyboard_detector' 
 require'template'
 -----------Functions---------
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true}
-  if opts then options = vim.tbl_extend('force', options, opts) end
+  if opts then 
+      options = vim.tbl_extend('force', options, opts) 
+  end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 function ToggleVExplorer()
@@ -19,7 +20,6 @@ function ToggleVExplorer()
     g.netrw_winsize = 40;
     cmd [[ Lexplore ]];
 end
-map_leader()
 ----------Globals----------------
 g.netrw_keepdir = 1;
 g.netrw_banner = 0;
@@ -28,21 +28,20 @@ g.netrw_localcopydircmd = 'cp -r';
 g.rainbow_active = 1;
 -------------Plugin Managing----------
 require'plugin_manager'
-cmd [[ command -nargs=1 PluginInstall lua PluginInstall(<f-args>)]]
-cmd [[ command PluginUpdate lua PluginUpdate() ]]
-cmd [[ command PluginList lua PluginList() ]]
-cmd [[ command -nargs=1 PluginDelete lua PluginDelete(<f-args>) ]]
+create_cmd('PluginInstall', 'lua PluginInstall(<f-args>)', { nargs = 1 })
+create_cmd('PluginUpdate', PluginUpdate, {})
+create_cmd('PluginList',  PluginList, {})
+create_cmd('PluginDelete', 'lua PluginDelete(<f-args>)', { nargs = 1 })
 ---------Mappings--------------------
 map('', '<leader>t', ':tabe<CR>');
 map('', '<leader>s', ':vsplit<CR>');
 map('', '<leader>n', ':lua ToggleVExplorer()<CR>');
 map('n', '<tab>', '<C-W>w', {noremap=true});
 ----------Vim Commands----------------
-cmd [[ set path+=** ]]
 cmd [[ filetype plugin indent on ]]
-cmd [[ hi! link netrwMarkFile Search ]]
-cmd [[ set guitablabel=%N/\ %t\ %M ]]
-cmd [[ command Temp lua template() ]]
+--vim.highlight.link('netrwMarkFile', 'Search', true)
+vim.api.nvim_set_hl(0, 'netrwMarkFile', { link = 'Search' })
+create_cmd('Temp', 'lua template()', {})
 -----------AutoCompletion---------------
 cmp.setup({
     snippet = {
@@ -93,13 +92,7 @@ cmp.setup({
       { name = 'cmdline' }
     })
   })
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-----------Language server protocol setup--------------
-lsp.clangd.setup{};
-lsp.tsserver.setup{};
-lsp.jsonls.setup {};
-lsp.html.setup{};
-lsp.cssls.setup{};
+  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -----------Options--------------
 opt.viminfo = '';
 opt.shiftwidth = 4;
@@ -125,3 +118,5 @@ opt.termguicolors = true;
 opt.completeopt = {'menuone','noinsert', 'noselect'};
 opt.backspace = {'indent', 'eol', 'start'};
 opt.clipboard = {'unnamed'};
+opt.guitablabel = '%N/ %t %M'
+opt.path = opt.path + '**'

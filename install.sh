@@ -11,10 +11,6 @@ NVIM_UNLOADED="$HOME/.local/share/nvim/site/pack/plugins/opt"
 ! type sed && echo "No sed installed" && exit 127
 ! type sort && echo "No sort installed" && exit 127
 
-if [ ! "$(printf '%s\n' "$NVIM_REQU" "$NVIM_VERS" | sort -V | sed 1q)" = "$NVIM_REQU" ]; then
-    echo "At least Neovim 0.5.0 or newer is needed"
-    exit 127
-fi
 make_folder_if_doesnt_exist() {
     if [ ! -d "$1" ]; then
         mkdir -p "$1"
@@ -22,6 +18,11 @@ make_folder_if_doesnt_exist() {
         cd "$1" && rm -rf ./*
     fi
 }
+
+if [ ! "$(printf '%s\n' "$NVIM_REQU" "$NVIM_VERS" | sort -V | sed 1q)" = "$NVIM_REQU" ]; then
+    echo "At least Neovim 0.5.0 or newer is needed"
+    exit 127
+fi
 make_folder_if_doesnt_exist "$NVIM_CONFIG"
 make_folder_if_doesnt_exist "$NVIM_PLUGINS"
 make_folder_if_doesnt_exist "$NVIM_UNLOADED"
