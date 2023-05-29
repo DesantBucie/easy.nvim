@@ -1,17 +1,16 @@
-# easy.nvim
+# THIS PROJECT IS DICOUNTINUED
 
-The whole purpose of this is was my annoyance for vim 'distros', and their overcomplexity.
-At first I wanted this to be totally independent project, so I don't have to rely on others updates, but my vim coding knowledge is to small.
+I become sort of bored using this. I'm not even sure if it works for someone else(I am talking to you this one person who starred :D). Guess I'll be switching back to vim. 
 
-For now it is, set of lua scripts, and git projects linked together, so it is easy to use, with basic features(like autocompletion).
-
-![Banner](https://raw.github.com/DesantBucie/DesantBucie/master/easy.nvim/banner.png)
+If you are interested I'm (when I'm writing this) planning to make new vim9 config/addon which I call Triton
+as I had no real other idea how to call it, and this word was somewhere in my mind for some reason. So, You can Check it up:
+[Link](https://github.com/DesantBucie/triton).
 
 ## TODO
 
 * Vim last session
 * Numered tabs
-* generally writing some things by myself, so i don't have to rely on others.
+* generally writing some things by myself, so i don't have to rely on others(I really believed that...).
 
 ## Language server protocol
 
