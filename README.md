@@ -22,7 +22,11 @@ By the way, set up node, so global packages doesn't need root privilages: `npm c
 
 ## Instalation
 
-Run install.sh
+You have to have git installed and in PATH.
+
+UNIX: Run install.sh, even if you have powershell, it won't work.
+
+Windows: Run install.ps1
 
 ## Keybindings
 
